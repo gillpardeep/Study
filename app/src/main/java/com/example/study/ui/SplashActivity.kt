@@ -8,6 +8,7 @@ import android.view.animation.LinearInterpolator
 import com.example.study.base.BaseActivity
 import com.example.study.R
 import com.example.study.data.constants.Config.DELAY_SPLASH
+import com.example.study.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay

@@ -1,7 +1,9 @@
 package com.example.study.utils
 
 import android.text.TextUtils
+import android.widget.ImageView
 import com.example.study.data.constants.Config.EMAIL_REGEX
+import com.squareup.picasso.Picasso
 import java.util.regex.Pattern
 
 /**
@@ -20,5 +22,9 @@ object CommonUtils {
      */
     fun isValidEmail(email: String): Boolean {
         return !TextUtils.isEmpty(email) && Pattern.matches(EMAIL_REGEX, email)
+    }
+
+    fun loadImage(imageView: ImageView, url: String) {
+        Picasso.with(imageView.context).load(url).into(imageView);
     }
 }

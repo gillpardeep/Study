@@ -6,5 +6,11 @@ package com.example.study.data.model
  * <h1>User</h1>
  *  <p>Description of class</p>
  */
-data class User(var email: String? = "", var password: String? = "") {
+data class User(
+    var email: String? = "",
+    var password: String? = "",
+    var name: String? = "",
+    var imageUrl: String? = ""
+
+) {
 }

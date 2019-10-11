@@ -8,5 +8,5 @@ import androidx.fragment.app.Fragment
  * <h1>BaseFragment</h1>
  *  <p>Description of class</p>
  */
-class BaseFragment :Fragment() {
+open class BaseFragment :Fragment() {
 }

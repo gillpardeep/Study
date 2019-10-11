@@ -1,10 +1,11 @@
-package com.example.study.ui
+package com.example.study.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import com.example.study.MainActivity
+import com.example.study.ui.main.MainActivity
 import com.example.study.R
 import com.example.study.base.BaseActivity
+import com.example.study.ui.signUp.SignUpActivity
 import com.example.study.utils.helper.ValidationHelper.validateFields
 import kotlinx.android.synthetic.main.activity_login.*
 

@@ -5,4 +5,9 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="sign_up">SignUp</string>
+    <string name="exit_toast">Please click BACK again to exit</string>
+    <string name="home">Home</string>
+    <string name="more">More</string>
+    <string name="profile">Profile</string>
+
 </resources>
