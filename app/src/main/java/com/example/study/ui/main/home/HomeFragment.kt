@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import com.example.study.R
 import com.example.study.base.BaseAdadpter
 import com.example.study.base.BaseFragment
 import com.example.study.data.model.User
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.item_rv_home.view.*
 
 
 /**
@@ -41,44 +38,9 @@ class HomeFragment : BaseFragment() {
         setUpAdapter()
     }
 
-    fun setUpAdapter() {
-        var user = User(
-            "email",
-            "1234",
-            "Title",
-            "https://cdn.mos.cms.futurecdn.net/pnUW2ua9XZuFph9ExrAMCb-320-80.jpg"
-        )
-        var user1 = User(
-            "email",
-            "1234",
-            "Title",
-            "https://cdn.mos.cms.futurecdn.net/pnUW2ua9XZuFph9ExrAMCb-320-80.jpg"
-        )
-        var user2 = User(
-            "email",
-            "1234",
-            "Title",
-            "https://cdn.mos.cms.futurecdn.net/pnUW2ua9XZuFph9ExrAMCb-320-80.jpg"
-        )
-        var user3 = User(
-            "email",
-            "1234",
-            "Title",
-            "https://cdn.mos.cms.futurecdn.net/pnUW2ua9XZuFph9ExrAMCb-320-80.jpg"
-        )
-        var list = ArrayList<User>()
-        list.add(user)
-        list.add(user1)
-        list.add(user2)
-        list.add(user3)
-        adapter = object : BaseAdadpter<User>(arrayListOf(), R.layout.item_rv_home) {
-            override fun onBindData(holder: RecyclerView.ViewHolder, position: User) {
-                holder.itemView.tv_home.text = position.name
-                Picasso.with(context).load(position.imageUrl).into(holder.itemView.img_home)
-                //loadImage(holder.itemView.img_home, position.imageUrl.toString())
-            }
-        }
-        rv_home.adapter = adapter
-        adapter.updateAdapter(list)
+    fun setUpAdapter(){
+        val viewPagerAdapter = HomePagerAdapter(fragmentManager!!)
+        view_pager.setAdapter(viewPagerAdapter)
+        tb_layout.setupWithViewPager(view_pager)
     }
 }

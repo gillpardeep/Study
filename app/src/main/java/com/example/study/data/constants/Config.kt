@@ -15,4 +15,6 @@ object Config {
 
     const val MIN_PASSWORD_LENGTH: Int = 6
 
+    const val COREJAVA = 0
+    const val ANDROID = 1
 }
