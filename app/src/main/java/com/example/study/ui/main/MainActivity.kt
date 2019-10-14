@@ -24,7 +24,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         var fragment = HomeFragment.newInstance()
-        when (item.getItemId()) {
+        when (item.itemId) {
             R.id.action_home -> fragment = HomeFragment.newInstance()
 
             R.id.action_profile -> fragment = ProfileFragment.newInstance()

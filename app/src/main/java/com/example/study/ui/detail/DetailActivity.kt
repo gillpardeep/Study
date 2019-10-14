@@ -15,14 +15,21 @@ import kotlinx.android.synthetic.main.activity_detail.*
  */
 class DetailActivity : BaseActivity() {
 
+    private lateinit var viewPageAdapter: DetailPageAdapter
+    private var list = ArrayList<User>()
+
     override fun getLayout() = R.layout.activity_detail
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         btn_back_detail.setOnClickListener { onBackPressed() }
+
         val user = intent.getParcelableExtra<User>(DETAIL_OBJECT)
+        list.add(user)
 
-
+        viewPageAdapter = DetailPageAdapter(this, list)
+        view_pager_detail.adapter = viewPageAdapter
+        tv_detail_title.text = user.name
     }
 }

@@ -72,7 +72,7 @@ class SyllabusDataFragment : BaseFragment() {
                 holder.itemView.tv_core_more.setOnClickListener {
 
                     val intent = Intent(activity, DetailActivity::class.java)
-                    intent.putExtra(DETAIL_OBJECT,position)
+                    intent.putExtra(DETAIL_OBJECT, position)
                     startActivity(intent)
                 }
             }
