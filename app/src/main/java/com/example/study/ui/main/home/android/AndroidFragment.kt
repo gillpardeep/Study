@@ -1,4 +1,4 @@
-package com.example.study.ui.main.home
+package com.example.study.ui.main.home.android
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -78,7 +78,7 @@ class AndroidFragment : BaseFragment() {
         adapter = object : BaseAdadpter<User>(arrayListOf(), R.layout.item_rv_home) {
             override fun onBindData(holder: RecyclerView.ViewHolder, position: User) {
                 holder.itemView.tv_home.text = position.name
-                Picasso.with(context).load(position.imageUrl).into(holder.itemView.img_home)
+                //Picasso.with(context).load(position.imageUrl).into(holder.itemView.img_home)
                 //loadImage(holder.itemView.img_home, position.imageUrl.toString())
             }
         }

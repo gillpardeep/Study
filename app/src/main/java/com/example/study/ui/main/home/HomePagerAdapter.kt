@@ -3,6 +3,9 @@ package com.example.study.ui.main.home
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.example.study.ui.main.home.android.AndroidFragment
+import com.example.study.ui.main.home.coreJava.CoreJavaFragment
+import com.example.study.ui.main.home.interview.InterViewFragment
 
 /**
  * @author Pardeep Singh
@@ -17,12 +20,13 @@ class HomePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
         when (position) {
             0 -> fragment = CoreJavaFragment.newInstance()
             1 -> fragment = AndroidFragment.newInstance()
+            2 -> fragment = InterViewFragment.newInstance()
         }
         return fragment!!
     }
 
     override fun getCount(): Int {
-        return 2
+        return 3
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
@@ -31,6 +35,8 @@ class HomePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
             title = "Core-Java"
         } else if (position == 1) {
             title = "Android"
+        } else if (position == 2) {
+            title = "Interview"
         }
         return title
     }

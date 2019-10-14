@@ -1,4 +1,4 @@
-package com.example.study.ui
+package com.example.study.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
