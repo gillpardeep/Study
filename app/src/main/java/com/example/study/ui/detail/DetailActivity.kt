@@ -6,6 +6,7 @@ import com.example.study.base.BaseActivity
 import com.example.study.data.model.User
 import com.example.study.ui.main.home.coreJava.syllabusData.SyllabusDataFragment.Companion.DETAIL_OBJECT
 import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
  * @author Pardeep Singh
@@ -27,9 +28,17 @@ class DetailActivity : BaseActivity() {
 
         val user = intent.getParcelableExtra<User>(DETAIL_OBJECT)
         list.add(user)
-
+        list.add(user)
         viewPageAdapter = DetailPageAdapter(this, list)
         view_pager_detail.adapter = viewPageAdapter
         tv_detail_title.text = user.name
+        tab_detail.setupWithViewPager(view_pager_detail, true)
+        setUpAdapter()
+    }
+
+    fun setUpAdapter() {
+        val viewPagerAdapter = DetailViewPagerAdapter(supportFragmentManager)
+        view_pager_details.setAdapter(viewPagerAdapter)
+        tab_layout_detail.setupWithViewPager(view_pager_details)
     }
 }
