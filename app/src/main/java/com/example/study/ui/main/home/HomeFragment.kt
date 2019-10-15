@@ -40,6 +40,7 @@ class HomeFragment : BaseFragment() {
 
     fun setUpAdapter(){
         val viewPagerAdapter = HomePagerAdapter(fragmentManager!!)
+        view_pager.offscreenPageLimit = 2
         view_pager.setAdapter(viewPagerAdapter)
         tb_layout.setupWithViewPager(view_pager)
     }

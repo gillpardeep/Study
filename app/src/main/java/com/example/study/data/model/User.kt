@@ -15,7 +15,7 @@ data class User(
     var password: String? = "",
     var name: String? = "",
     var imageUrl: String? = "",
-    var backgroundSelect: Boolean = false
+    var isSelect: Boolean = false
 
 ) : Parcelable {
 }

@@ -1,5 +1,6 @@
 package com.example.study.ui.main.home.coreJava.syllabusLIst
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,7 @@ import kotlinx.android.synthetic.main.item_rv_home.view.*
  */
 class SyllabusListFragment : BaseFragment() {
 
+    private lateinit var list1: java.util.ArrayList<User>
     lateinit var adapter: BaseAdadpter<User>
 
     override fun onCreateView(
@@ -112,27 +114,28 @@ class SyllabusListFragment : BaseFragment() {
             "http://www.xappsoftware.com/wordpress/wp-content/uploads/2014/02/PHP.png"
         )
 
-        var list = ArrayList<User>()
-        list.add(user)
-        list.add(user1)
-        list.add(user2)
-        list.add(user3)
-        list.add(user5)
-        list.add(user6)
-        list.add(user7)
-        list.add(user8)
-        list.add(user9)
-        list.add(user10)
-        list.add(user11)
-        list.add(user12)
-        list.add(user1)
-        list.add(user1)
-        list.add(user2)
-        list.add(user3)
+        list1 = ArrayList<User>()
+        list1.add(user)
+        list1.add(user1)
+        list1.add(user2)
+        list1.add(user3)
+        list1.add(user5)
+        list1.add(user6)
+        list1.add(user7)
+        list1.add(user8)
+        list1.add(user9)
+        list1.add(user10)
+        list1.add(user11)
+        list1.add(user12)
+        list1.add(user1)
+        list1.add(user1)
+        list1.add(user2)
+        list1.add(user3)
         adapter = object : BaseAdadpter<User>(arrayListOf(), R.layout.item_rv_home) {
             override fun onBindData(holder: RecyclerView.ViewHolder, position: User) {
 
                 holder.itemView.tv_home.text = position.name
+
                 holder.itemView.setOnClickListener {
                     val bundle = Bundle()
                     bundle.putParcelable(DETAIL_OBJECT, position) // Put anything what you want
@@ -140,10 +143,21 @@ class SyllabusListFragment : BaseFragment() {
                     fragment2.setArguments(bundle)
                     fragmentManager!!.beginTransaction()
                         .replace(R.id.fragmnet_data, fragment2).commit()
+
+                    position.isSelect = true
+                    if (position.isSelect) {
+                        holder.itemView.setBackgroundColor(Color.parseColor("#DBDADA"))
+                    } else {
+                        for (i in 0 until list.size) {
+                            holder.itemView.setBackgroundColor(Color.parseColor("#ffffff"))
+                        }
+                    }
+                    position.isSelect = false
+
                 }
             }
         }
         rv_core_java.adapter = adapter
-        adapter.updateAdapter(list)
+        adapter.updateAdapter(list1)
     }
 }
