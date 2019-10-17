@@ -113,6 +113,18 @@ class SyllabusListFragment : BaseFragment() {
             "PHP",
             "http://www.xappsoftware.com/wordpress/wp-content/uploads/2014/02/PHP.png"
         )
+        var user13 = User(
+            "email",
+            "1234",
+            "Phyton",
+            "https://i.imgur.com/ruqvPUf.jpg"
+        )
+        var user14 = User(
+            "email",
+            "1234",
+            "PHP",
+            "http://www.xappsoftware.com/wordpress/wp-content/uploads/2014/02/PHP.png"
+        )
 
         list1 = ArrayList<User>()
         list1.add(user)
@@ -127,10 +139,9 @@ class SyllabusListFragment : BaseFragment() {
         list1.add(user10)
         list1.add(user11)
         list1.add(user12)
-        list1.add(user1)
-        list1.add(user1)
-        list1.add(user2)
-        list1.add(user3)
+        list1.add(user13)
+        list1.add(user14)
+
         adapter = object : BaseAdadpter<User>(arrayListOf(), R.layout.item_rv_home) {
             override fun onBindData(holder: RecyclerView.ViewHolder, position: User) {
 
@@ -144,16 +155,14 @@ class SyllabusListFragment : BaseFragment() {
                     fragmentManager!!.beginTransaction()
                         .replace(R.id.fragmnet_data, fragment2).commit()
 
-                    position.isSelect = true
-                    if (position.isSelect) {
-                        holder.itemView.setBackgroundColor(Color.parseColor("#DBDADA"))
-                    } else {
-                        for (i in 0 until list.size) {
-                            holder.itemView.setBackgroundColor(Color.parseColor("#ffffff"))
-                        }
-                    }
-                    position.isSelect = false
-
+                    list.get(holder.adapterPosition).isSelect = !position.isSelect
+                    notifyDataSetChanged()
+                }
+                if (list.get(holder.adapterPosition).isSelect) {
+                    holder.itemView.setBackgroundColor(Color.parseColor("#DBDADA"))
+                    list.get(holder.adapterPosition).isSelect = false
+                } else {
+                    holder.itemView.setBackgroundColor(Color.parseColor("#FFFFFF"))
                 }
             }
         }

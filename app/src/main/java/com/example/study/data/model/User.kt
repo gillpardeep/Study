@@ -17,5 +17,4 @@ data class User(
     var imageUrl: String? = "",
     var isSelect: Boolean = false
 
-) : Parcelable {
-}
+) : Parcelable
